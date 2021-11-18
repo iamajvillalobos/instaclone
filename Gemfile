@@ -49,3 +49,5 @@ group :development do
   # Preview emails in the browser
   gem 'letter_opener'
 end
+
+gem "has_friendship", github: "sungwoncho/has_friendship"
