@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
     @users = if params[:username]&.present?
                User.where(username: params[:username])
              else
-               User.limit(20)
+               User.where.not(id: current_user.id).limit(20)
              end
   end
 
