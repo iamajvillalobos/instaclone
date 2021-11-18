@@ -1,7 +1,7 @@
-<% photos.in_groups_of(3).each do |grouped_photos| %>
-  <div class="columns">
-    <% grouped_photos.compact.each do |photo| %>
-      <%= render photo %>
-    <% end %>
-  </div>
-<% end %>
+<div class="columns is-multiline">
+  <% photos.each do |photo| %>
+    <div class="column is-one-third-tablet">
+      <%= image_tag photo.photo %>
+    </div>
+  <% end %>
+</div>

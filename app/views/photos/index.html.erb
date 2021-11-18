@@ -1,15 +1,1 @@
-<div class="container pt-5">
-  <% if @photos.empty? %>
-    <div class="column">
-      <p>There is still no photos to display.</p>
-    </div>
-  <% else %>
-    <% @photos.in_groups_of(3).each do |grouped_photos| %>
-      <div class="columns">
-        <% grouped_photos.compact.each do |photo| %>
-          <%= render photo %>
-        <% end %>
-      </div>
-    <% end %>
-  <% end %>
-</div>
+<%= render partial: "photos/gallery", locals: { photos: @photos } %>

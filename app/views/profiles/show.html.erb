@@ -1,23 +1,6 @@
-<div class="panel is-black mb-4">
-  <div class="panel-heading"><%= @user.username %>'s Profile</div>
+<h1 class="is-size-3 has-text-weight-bold mb-6">
+  <%= @user.username %>'s Profile
+  <%= link_to "Upload", new_photo_path, class: "button is-dark" %>
+</h1>
 
-  <div class="panel-block" style="display: block;">
-    <h2 class="title">Photos</h2>
-    <% if @user.photos.empty? %>
-      <p>There is still no photos to display.</p>
-    <% else %>
-      <%= render partial: "photos/gallery", locals: { photos: @user.photos } %>
-    <% end %>
-  </div>
-
-  <div class="panel-block" style="display: block;">
-    <h2 class="title">Friends</h2>
-    <% if @user.friends.empty? %>
-      <p>There are no friends yet, let's <%= link_to "add some", "" %></p>
-    <% else %>
-      <% @user.friends.each do |friend| %>
-        <%= render partial: "profiles/friend", locals: { user: friend } %>
-      <% end %>
-    <% end %>
-  </div>
-</div>
+<%= render partial: "photos/gallery", locals: { photos: @user.photos } %>
