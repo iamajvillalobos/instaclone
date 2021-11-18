@@ -1,0 +1,9 @@
+<%= link_to profile_path(user.username) do %>
+  <div class="is-flex is-align-items-center">
+    <div>
+      <figure class="image is-64x64">
+        <img src=<%= "https://avatars.dicebear.com/api/adventurer/#{user.id}-#{user.username}.svg" %> />
+      </figure>
+    </div>
+    <p class="pl-2"><%= user.username %></p>
+<% end %>
