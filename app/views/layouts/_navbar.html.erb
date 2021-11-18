@@ -1,24 +1,24 @@
-<div class="navbar is-black">
-  <div class="navbar-brand">
-    <%= link_to "Instaclone", root_path, class: "navbar-item" %>
-  </div>
-
-  <div class="navbar-menu">
-    <% if user_signed_in? %>
-      <div class="navbar-start">
-        <%= link_to "Home", photos_path, class: "navbar-item" %>
-        <%= link_to "Profile", profiles_path, class: "navbar-item" %>
+<section class="section m-0 p-0">
+  <div class="container">
+    <nav class="navbar mt-5 mb-5">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item has-text-weight-bold" do %>
+          <%= image_tag "logo.svg" %>
+          <span>&nbsp; Instaclone</span>
+        <% end %>
       </div>
-    <% end %>
-
-    <div class="navbar-end">
-      <% if user_signed_in? %>
-        <%= link_to "Upload", new_photo_path, class: "navbar-item" %>
-        <%= link_to current_user.username, profile_path(current_user.username), class: "navbar-item" %>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-item" %>
-      <% else %>
-        <%= link_to "Login", new_user_session_path, class: "navbar-item" %>
-      <% end %>
-    </div>
+      <div class="navbar-menu">
+        <div class="navbar-end">
+            <% if user_signed_in? %>
+              <%= link_to "Home", photos_path, class: "navbar-item" %>
+              <%= link_to "Explore", profiles_path, class: "navbar-item" %>
+              <%= link_to "Profile", profile_path(current_user.username), class: "navbar-item" %>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-item" %>
+            <% else %>
+              <%= link_to "Login", new_user_session_path, class: "navbar-item" %>
+            <% end %>
+        </div>
+      </div>
+    </nav>
   </div>
-</div>
+</section>
