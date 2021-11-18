@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :photos, only: [:index, :show, :new, :create, :destroy]
   resources :comments, only: [:create, :edit, :update, :destroy]
 
+  get "friends/:username", to: "friends#show", as: :friends
   resources :friend_requests, only: [:create]
 
   root 'photos#index'

@@ -1,6 +1,12 @@
-<h1 class="is-size-3 has-text-weight-bold mb-6">
-  <%= @user.username %>'s Profile
-  <%= link_to "Upload", new_photo_path, class: "button is-dark" %>
-</h1>
+<div class="level mb-6">
+  <div class="level-left">
+    <span class="is-size-3 has-text-weight-bold pr-2"><%= @user.username %>'s Profile</span>
+    <%= link_to "Upload", new_photo_path, class: "button is-dark" %>
+  </div>
+  <div class="level-right">
+    <% friend_count = @user.friends.count %>
+    <%= link_to "#{friend_count} #{"Friend".pluralize(friend_count)}", friends_path(@user.username) %>
+  </div>
+</div>
 
 <%= render partial: "photos/gallery", locals: { photos: @user.photos } %>
