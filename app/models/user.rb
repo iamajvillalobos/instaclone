@@ -11,4 +11,17 @@ class User < ApplicationRecord
   has_friendship
   has_many :photos, dependent: :delete_all
   has_many :comments, dependent: :delete_all
+
+  # these methods are required for the gem to work 🤷🏽
+  def on_friendship_created(friendship)
+  end
+  
+  def on_friendship_accepted(friendship)
+  end
+  
+  def on_friendship_blocked(friendship)
+  end
+  
+  def on_friendship_destroyed(friendship)
+  end
 end

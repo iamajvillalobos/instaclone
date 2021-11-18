@@ -6,6 +6,10 @@
   </div>
   <div>
     <p class="pb-1"><%= link_to user.username, profile_path(user.username) %></p>
-    <%= link_to "Add Friend", "", class: "button is-small is-light" %>
+    <%= link_to "Add Friend",
+      friend_requests_path(user_id: user.id),
+      method: :post,
+      class: "button is-small is-light"
+    %>
   </div>
 </div>
