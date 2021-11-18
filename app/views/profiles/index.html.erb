@@ -1,14 +1,20 @@
-<div>
-  <%= form_with url: '/profiles', method: :get, local: true do %>
-    <%= label_tag :username, 'Search for: ' %>
-    <%= text_field_tag :username %>
-
-    <%= submit_tag 'Search' %>
+<div class="columns">
+  <%= form_with url: '/profiles', method: :get, local: true, class: "column" do %>
+    <%= label_tag :username, 'Search' %>
+    <div class="control">
+      <%= text_field_tag :username, {}, class: "input", placeholder: "Enter username" %>
+    </div>
+    
+    <div class="mt-2">
+      <%= submit_tag 'Search', class: "button is-black" %>
+    </div>
   <%end %>
+</div>
 
+<div class="columns">
   <% @users.each do |user| %>
-    <p>
-      <%= link_to user.username, profile_path(user.username) %>
-    </p>
+    <div class="column">
+      <%= render partial: "user_result", locals: { user: user } %>
+    </div>
   <% end %>
 </div>

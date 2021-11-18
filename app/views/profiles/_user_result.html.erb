@@ -1,0 +1,11 @@
+<div class="is-flex">
+  <div class="pr-2">
+    <figure class="image is-64x64">
+      <img src=<%= "https://avatars.dicebear.com/api/adventurer/#{user.id}-#{user.username}.svg" %> />
+    </figure>
+  </div>
+  <div>
+    <p class="pb-1"><%= link_to user.username, profile_path(user.username) %></p>
+    <%= link_to "Add Friend", "", class: "button is-small is-light" %>
+  </div>
+</div>

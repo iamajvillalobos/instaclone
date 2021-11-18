@@ -13,6 +13,7 @@
 
     <div class="navbar-end">
       <% if user_signed_in? %>
+        <%= link_to "Upload", new_photo_path, class: "navbar-item" %>
         <%= link_to current_user.username, profile_path(current_user.username), class: "navbar-item" %>
         <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-item" %>
       <% else %>
