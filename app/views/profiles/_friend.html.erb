@@ -1,9 +1,7 @@
-<%= link_to profile_path(user.username) do %>
-  <div class="is-flex is-align-items-center">
-    <div>
-      <figure class="image is-64x64">
-        <img src=<%= "https://avatars.dicebear.com/api/adventurer/#{user.id}-#{user.username}.svg" %> />
-      </figure>
-    </div>
-    <p class="pl-2"><%= user.username %></p>
-<% end %>
+<div class="column is-one-fifth-tablet">
+  <figure class="image is-96x96">
+    <img src=<%= "https://avatars.dicebear.com/api/adventurer/#{user.id}-#{user.username}.svg" %> />
+  </figure>
+  <p class="is-size-4"><%= user.username %></p>
+  <%= link_to "View Profile", profile_path(user.username), class: "button is-dark" %>
+</div>

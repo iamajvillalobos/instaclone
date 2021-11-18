@@ -1,1 +1,11 @@
-You have <%= @friends.count %> friends
+<div class="mb-6">
+  <h1 class="is-size-3 has-text-weight-bold">
+    <%= @user.username %>'s Friends
+  </h1>
+</div>
+
+<div class="columns is-multiline">
+  <% @user.friends.each do |friend| %>
+    <%= render partial: "profiles/friend", locals: { user: friend } %>
+  <% end %>
+</div>
