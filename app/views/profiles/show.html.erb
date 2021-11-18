@@ -1,19 +1,12 @@
-<div>
-  <h3><%= @user.username %>'s profile</h3>
+<div class="panel is-black">
+  <div class="panel-heading"><%= @user.username %>'s Profile</div>
 
-  <p>
-    <% if current_user&.eql? @user %>
-      <%= link_to "Upload photos", new_photo_path %>
+  <div class="panel-block" style="display: block;">
+    <h2 class="title">Photos</h2>
+    <% if @user.photos.empty? %>
+      <p>There is still no photos to display.</p>
+    <% else %>
+      <%= render partial: "photos/gallery", locals: { photos: @user.photos } %>
     <% end %>
-  </p>
-
-  <% if @user.photos.empty? %>
-    <p>There is still no photos to display.</p>
-  <% else %>
-    <% @user.photos.each do |photo| %>
-      <%= link_to photo_path(photo) do %>
-        <%= image_tag photo.photo.variant(resize: '200', gravity: 'Center', crop: '200x200+0+0') %>
-      <% end %>
-    <% end %>
-  <% end %>
+  </div>
 </div>
