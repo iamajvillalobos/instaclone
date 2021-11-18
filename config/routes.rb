@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   get 'profiles/:username', to: 'profiles#show', as: :profile
 
   resources :photos, only: [:index, :show, :new, :create, :destroy]
-
   resources :comments, only: [:create, :edit, :update, :destroy]
+
+  resources :friend_requests, only: [:create]
 
   root 'photos#index'
 
