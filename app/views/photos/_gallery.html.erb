@@ -3,6 +3,12 @@
     <div class="column is-one-third-tablet">
       <%= link_to photo_path(photo) do %>
         <%= image_tag photo.photo %>
+
+        <% if current_page?(root_path) || current_page?(photos_path) %>
+          <span class="posted-by">
+            <%= photo.user.username %>
+          </span>
+        <% end %>
       <% end %>
     </div>
   <% end %>
