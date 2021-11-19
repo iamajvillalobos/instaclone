@@ -6,6 +6,13 @@
   <div class="level-right">
     <% friend_count = @user.friends.count %>
     <%= link_to "#{friend_count} #{"Friend".pluralize(friend_count)}", friends_path(@user.username) %>
+    
+    <% if @user == current_user %>
+      <div class="pl-2">
+        <% friend_request_count = current_user.requested_friends.count %>
+        <%= link_to "#{friend_request_count} #{"Friend Request".pluralize(friend_request_count)}", friend_requests_path %>
+      </div>
+    <% end %>
   </div>
 </div>
 

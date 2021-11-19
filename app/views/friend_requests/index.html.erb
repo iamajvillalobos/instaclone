@@ -1,0 +1,19 @@
+<div class="mb-4">
+  <h2 class="is-size-3 has-text-weight-bold">Friend Requests</h2>
+</div>
+
+<div class="columns is-multiline">
+  <% @friend_requests.each do |request| %>
+    <div class="column is-one-fifth-tablet">
+      <%= image_tag request.avatar_url %>
+      <div class="is-flex is-flex-direction-column">
+        <p class="has-text-centered"><%= request.username %></p>
+        <%= link_to "Accept",
+          friend_request_accept_path(request),
+          class: "button is-black",
+          method: :post
+        %>
+      </div>
+    </div>
+  <% end %>
+</div>

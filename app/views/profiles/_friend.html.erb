@@ -1,7 +1,7 @@
 <div class="column is-one-fifth-tablet">
-  <figure class="image is-96x96">
-    <img src=<%= "https://avatars.dicebear.com/api/adventurer/#{user.id}-#{user.username}.svg" %> />
-  </figure>
-  <p class="is-size-4"><%= user.username %></p>
-  <%= link_to "View Profile", profile_path(user.username), class: "button is-dark" %>
+  <img src=<%= user.avatar_url %> />
+  <div class="is-flex is-flex-direction-column">
+    <p class="has-text-centered"><%= user.username %></p>
+    <%= link_to "View Profile", profile_path(user.username), class: "button is-dark" %>
+  </div>
 </div>

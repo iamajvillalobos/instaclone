@@ -12,6 +12,10 @@ class User < ApplicationRecord
   has_many :photos, dependent: :delete_all
   has_many :comments, dependent: :delete_all
 
+  def avatar_url
+    "https://avatars.dicebear.com/api/avataaars/#{id}-#{username}.svg"
+  end
+
   # these methods are required for the gem to work 🤷🏽
   def on_friendship_created(friendship)
   end

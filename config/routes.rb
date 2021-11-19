@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :edit, :update, :destroy]
 
   get "friends/:username", to: "friends#show", as: :friends
-  resources :friend_requests, only: [:create]
+  resources :friend_requests, only: [:create, :index] do
+    post :accept
+  end
 
   root 'photos#index'
 
