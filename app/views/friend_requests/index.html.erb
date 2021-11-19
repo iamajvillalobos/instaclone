@@ -8,11 +8,22 @@
       <%= image_tag request.avatar_url %>
       <div class="is-flex is-flex-direction-column">
         <p class="has-text-centered"><%= request.username %></p>
-        <%= link_to "Accept",
-          friend_request_accept_path(request),
-          class: "button is-black",
-          method: :post
-        %>
+        <div class="level">
+          <div class="level-left">
+            <%= link_to "Accept",
+              friend_request_accept_path(request),
+              class: "button is-black",
+              method: :post
+            %>
+          </div>
+          <div class="level-right">
+          <%= link_to "Decline",
+              friend_request_decline_path(request),
+              class: "button is-danger",
+              method: :post
+            %>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "friends/:username", to: "friends#show", as: :friends
   resources :friend_requests, only: [:create, :index] do
     post :accept
+    post :decline
   end
 
   root 'photos#index'

@@ -16,4 +16,11 @@ class FriendRequestsController < ApplicationController
 
     redirect_to friends_path(current_user.username), notice: "You are now friends with #{user.username}!"
   end
+
+  def decline
+    user = User.find(params[:friend_request_id])
+    current_user.decline_request(user)
+
+    redirect_to friends_path(current_user.username), notice: "Friend request declined!"
+  end
 end
