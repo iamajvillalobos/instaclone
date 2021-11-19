@@ -1,37 +1,29 @@
-<div class="section">
-  <div class="container">
-    
+<%= form_with url: '/profiles', method: :get, local: true, class: "column" do %>
+  <%= label_tag :username, 'Search' %>
+  <div class="control">
+    <%= text_field_tag :username, {}, class: "input", placeholder: "Enter username" %>
   </div>
-</div>
+  <div class="mt-2">
+    <%= submit_tag 'Search', class: "button is-black" %>
+  </div>
+<%end %>
 
-
-
-<div class="columns">
-  <%= form_with url: '/profiles', method: :get, local: true, class: "column" do %>
-    <%= label_tag :username, 'Search' %>
-    <div class="control">
-      <%= text_field_tag :username, {}, class: "input", placeholder: "Enter username" %>
-    </div>
-    
-    <div class="mt-2">
-      <%= submit_tag 'Search', class: "button is-black" %>
-    </div>
-  <%end %>
-</div>
-
-<div class="columns">
+<div class="columns is-multiline">
   <% @users.each do |user| %>
-    <div class="column">
-      <%= render partial: "user_result", locals: { user: user } %>
+    <div class="column is-one-fifth-tablet">
+      <%= image_tag user.avatar_url %>
+      <div class="is-flex is-flex-direction-column">
+        <p class="has-text-centered"><%= user.username %></p>
+        <% unless current_user.friends_with?(user) %>
+          <%= link_to "Add Friend",
+            friend_requests_path(user_id: user.id),
+            class: "button is-black",
+            method: :post
+          %>
+        <% else %>
+          <%= link_to "View Profile", profile_path(user.username), class: "button is-black is-light" %>
+        <% end %>
+      </div>
     </div>
   <% end %>
-</div>
-
-<div class="panel">
-  <div class="panel-heading">Friends</div>
-  <p class="panel-tabs">
-    <%= link_to "All Friends", "", class: "is-active" %>
-    <%= link_to "Pending Invites", "" %>
-    <%= link_to "Pending Requests", "" %>
-  </p>
 </div>

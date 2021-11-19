@@ -1,15 +1,12 @@
-<div class="is-flex">
-  <div class="pr-2">
-    <figure class="image is-64x64">
-      <img src=<%= "https://avatars.dicebear.com/api/adventurer/#{user.id}-#{user.username}.svg" %> />
-    </figure>
-  </div>
-  <div>
-    <p class="pb-1"><%= link_to user.username, profile_path(user.username) %></p>
+<div class="column is-one-fifth-tablet">
+  <%= image_tag user.avatar_url %>
+  <div class="is-flex is-flex-direction-column">
+    <p class="has-text-centered"><%= user.username %></p>
     <%= link_to "Add Friend",
       friend_requests_path(user_id: user.id),
-      method: :post,
-      class: "button is-small is-light"
+      class: "button is-black",
+      method: :post
     %>
+    </div>
   </div>
 </div>
